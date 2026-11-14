@@ -1,0 +1,1 @@
+{"name": "kg-test-vulnerable", "version": "1.0.0", "private": true, "dependencies": {"lodash": "4.17.15", "minimist": "1.2.0"}}
