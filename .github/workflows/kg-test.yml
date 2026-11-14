@@ -1,3 +1,3 @@
 name: KG test
 on: [push, workflow_dispatch]
-jobs: {build: {runs-on: ubuntu-latest, steps: [{name: KG test build, run: echo kg-test-build-ok}]}, verify: {runs-on: ubuntu-latest, needs: build, steps: [{name: KG test verify, run: echo kg-test-verify-ok}]}}
+jobs: {build: {runs-on: ubuntu-latest, steps: [{name: KG test build, run: echo kg-test-build-ok}]}, verify: {runs-on: ubuntu-latest, needs: build, environment: kg-test-env, steps: [{name: KG test verify, run: echo kg-test-verify-ok}]}}
