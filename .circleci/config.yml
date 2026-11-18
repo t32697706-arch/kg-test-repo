@@ -1,0 +1,23 @@
+# Minimal pipeline for kg's CircleCI live gate (throwaway test repository).
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run: echo "kg gate build step"
+  test:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run: echo "kg gate test step"
+workflows:
+  kg-gate:
+    jobs:
+      - build
+      - test:
+          requires: [build]
+      - hold:
+          type: approval
+          requires: [test]
